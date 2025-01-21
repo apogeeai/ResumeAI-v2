@@ -48,7 +48,10 @@ Best regards,
   };
 
   return (
-    <main className="container py-12">
+    <main className="container relative min-h-screen py-12">
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] dark:bg-[linear-gradient(to_right,#8888880D_1px,transparent_1px),linear-gradient(to_bottom,#8888880D_1px,transparent_1px)]" />
+      </div>
       <div className="max-w-4xl mx-auto space-y-8">
         <div className="text-center space-y-4">
           <AnimatedText
@@ -68,7 +71,7 @@ Best regards,
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <Card className="p-6 h-full">
+            <Card className="p-6 h-full border border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
               <h2 className="text-2xl font-semibold mb-4">Upload Resume</h2>
               <div
                 {...getRootProps()}
@@ -105,7 +108,7 @@ Best regards,
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Card className="p-6 h-full">
+            <Card className="p-6 h-full border border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
               <h2 className="text-2xl font-semibold mb-4">Job Description</h2>
               <Textarea
                 placeholder="Paste the job description here..."
@@ -140,7 +143,7 @@ Best regards,
               transition={{ duration: 0.5 }}
               className="mt-12"
             >
-              <Card className="p-8">
+              <Card className="p-8 border border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
                 <div className="space-y-6">
                   <div className="flex justify-between items-center">
                     <h3 className="text-2xl font-semibold">Your Cover Letter</h3>
@@ -150,7 +153,7 @@ Best regards,
                   </div>
                   <Textarea
                     value={coverLetter}
-                    className="min-h-[400px] text-lg leading-relaxed"
+                    className="min-h-[400px] text-[0.875rem] leading-relaxed"
                     readOnly
                   />
                 </div>
