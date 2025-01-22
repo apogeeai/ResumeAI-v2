@@ -17,7 +17,8 @@ import {
 
 const resourceLinks = [
   {
-    title: "Sample Resumes",
+    title: "Resume Examples",
+    description: "Industry-specific resume samples",
     items: [
       { name: "Software Engineer", href: "/samples/software-engineer" },
       { name: "Product Manager", href: "/samples/product-manager" },
@@ -26,7 +27,8 @@ const resourceLinks = [
     ],
   },
   {
-    title: "Resume Resources",
+    title: "Learning Center",
+    description: "Expert guides and resources",
     items: [
       { name: "ATS Optimization Guide", href: "/guides/ats-optimization" },
       { name: "Skills Database", href: "/resources/skills" },
@@ -35,6 +37,7 @@ const resourceLinks = [
   },
   {
     title: "Career Tools",
+    description: "Tools for career growth",
     items: [
       { name: "Salary Calculator", href: "/tools/salary" },
       { name: "Interview Prep", href: "/tools/interview" },
@@ -82,14 +85,20 @@ export function SiteNav() {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid w-[600px] grid-cols-3 gap-4 p-4">
+                    <div className="grid w-[600px] grid-cols-3 gap-8 p-6 bg-white/85 dark:bg-background/85 backdrop-blur-xl">
                       {resourceLinks.map((section) => (
-                        <div key={section.title} className="space-y-2">
-                          <h4 className="font-medium leading-none">{section.title}</h4>
-                          <ul className="space-y-1">
+                        <div key={section.title} className="space-y-3">
+                          <div>
+                            <h4 className="text-base font-semibold text-foreground">{section.title}</h4>
+                            <p className="text-sm text-muted-foreground mt-1">{section.description}</p>
+                          </div>
+                          <ul className="space-y-2">
                             {section.items.map((item) => (
                               <li key={item.name}>
-                                <Link href={item.href} className="block select-none space-y-1 rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                                <Link 
+                                  href={item.href} 
+                                  className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                                >
                                   {item.name}
                                 </Link>
                               </li>

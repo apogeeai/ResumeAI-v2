@@ -58,29 +58,62 @@ export default function Home() {
           </Card>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-12 md:mt-16 max-w-[1110px] mx-auto">
-            {features.map((feature, index) => (
-              <Card 
-                key={index} 
-                className="group relative p-6 text-center border border-[#e5e7eb] dark:border-border/50 bg-white/85 dark:bg-background/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/85 dark:supports-[backdrop-filter]:bg-background/85 overflow-hidden shadow-[0_1px_3px_0_rgb(0,0,0,0.1),0_1px_2px_-1px_rgb(0,0,0,0.1)] dark:shadow-sm transition-transform duration-300 hover:scale-[1.02] before:absolute before:inset-0 before:border before:border-[#e5e7eb]/50 before:translate-x-[1px] before:translate-y-[1px] dark:before:border-border/30"
-              >
-                {/* Fancy gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-primary/[0.05] to-white/[0.05] dark:from-primary/10 dark:via-primary/5 dark:to-transparent" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0))]" />
-
-                {/* Content */}
-                <div className="relative">
-                  <div className="relative inline-flex rounded-full p-3 bg-gradient-to-br from-white/20 via-white/10 to-transparent dark:from-primary/10 dark:via-primary/5 dark:to-transparent mb-4">
-                    <feature.icon className="w-12 h-12 text-primary" />
+            <Card className="group relative p-6 md:p-8 border border-[#e5e7eb] dark:border-border/50 bg-white/60 dark:bg-background/60 backdrop-blur-xl supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-background/60 overflow-hidden shadow-[0_1px_3px_0_rgb(0,0,0,0.1),0_1px_2px_-1px_rgb(0,0,0,0.1)] dark:shadow-sm before:absolute before:inset-0 before:border before:border-[#e5e7eb]/50 before:translate-x-[1px] before:translate-y-[1px] dark:before:border-border/30">
+              {/* Gradient overlay - adjusted for light/dark modes */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-white/10 dark:from-primary/5 dark:via-primary/0 dark:to-primary/5" />
+              
+              <div className="relative space-y-4">
+                <div className="flex justify-center">
+                  <div className="relative inline-flex rounded-full p-3 bg-gradient-to-br from-primary/[0.15] via-primary/[0.07] to-transparent dark:from-primary/10 dark:via-primary/5 dark:to-transparent">
+                    <Brain className="h-12 w-12 md:h-16 md:w-16 text-primary" />
                   </div>
-                  <h3 className="text-lg font-semibold mb-2 bg-gradient-to-br from-foreground to-foreground/80 bg-clip-text text-transparent">
-                    {feature.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    {feature.description}
-                  </p>
                 </div>
-              </Card>
-            ))}
+                <h2 className="text-xl md:text-2xl font-semibold bg-gradient-to-br from-foreground to-foreground/80 bg-clip-text text-transparent">
+                  AI-Powered Optimization
+                </h2>
+                <p className="text-sm md:text-base text-muted-foreground">
+                  Our AI analyzes and enhances your resume to match job requirements perfectly
+                </p>
+              </div>
+            </Card>
+
+            <Card className="group relative p-6 md:p-8 border border-[#e5e7eb] dark:border-border/50 bg-white/60 dark:bg-background/60 backdrop-blur-xl supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-background/60 overflow-hidden shadow-[0_1px_3px_0_rgb(0,0,0,0.1),0_1px_2px_-1px_rgb(0,0,0,0.1)] dark:shadow-sm before:absolute before:inset-0 before:border before:border-[#e5e7eb]/50 before:translate-x-[1px] before:translate-y-[1px] dark:before:border-border/30">
+              {/* Gradient overlay - adjusted for light/dark modes */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-white/10 dark:from-primary/5 dark:via-primary/0 dark:to-primary/5" />
+              
+              <div className="relative space-y-4">
+                <div className="flex justify-center">
+                  <div className="relative inline-flex rounded-full p-3 bg-gradient-to-br from-primary/[0.15] via-primary/[0.07] to-transparent dark:from-primary/10 dark:via-primary/5 dark:to-transparent">
+                    <FileOutput className="h-12 w-12 md:h-16 md:w-16 text-primary" />
+                  </div>
+                </div>
+                <h2 className="text-xl md:text-2xl font-semibold bg-gradient-to-br from-foreground to-foreground/80 bg-clip-text text-transparent">
+                  ATS-Friendly Format
+                </h2>
+                <p className="text-sm md:text-base text-muted-foreground">
+                  Ensure your resume passes through Applicant Tracking Systems successfully
+                </p>
+              </div>
+            </Card>
+
+            <Card className="group relative p-6 md:p-8 border border-[#e5e7eb] dark:border-border/50 bg-white/60 dark:bg-background/60 backdrop-blur-xl supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-background/60 overflow-hidden shadow-[0_1px_3px_0_rgb(0,0,0,0.1),0_1px_2px_-1px_rgb(0,0,0,0.1)] dark:shadow-sm before:absolute before:inset-0 before:border before:border-[#e5e7eb]/50 before:translate-x-[1px] before:translate-y-[1px] dark:before:border-border/30">
+              {/* Gradient overlay - adjusted for light/dark modes */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-white/10 dark:from-primary/5 dark:via-primary/0 dark:to-primary/5" />
+              
+              <div className="relative space-y-4">
+                <div className="flex justify-center">
+                  <div className="relative inline-flex rounded-full p-3 bg-gradient-to-br from-primary/[0.15] via-primary/[0.07] to-transparent dark:from-primary/10 dark:via-primary/5 dark:to-transparent">
+                    <FileCheck className="h-12 w-12 md:h-16 md:w-16 text-primary" />
+                  </div>
+                </div>
+                <h2 className="text-xl md:text-2xl font-semibold bg-gradient-to-br from-foreground to-foreground/80 bg-clip-text text-transparent">
+                  Real-Time Analysis
+                </h2>
+                <p className="text-sm md:text-base text-muted-foreground">
+                  Get instant feedback and suggestions to improve your resume's impact
+                </p>
+              </div>
+            </Card>
           </div>
 
           {/* Add MarqueeDemo below buckets */}
