@@ -41,7 +41,7 @@ export function AnimatedLogo({ className = "" }: { className?: string }) {
       animate="visible"
     >
       <motion.div variants={child} className="inline-flex">
-        <FileText className="w-8 h-8 text-primary" />
+        <FileText className="w-9 h-9" />
       </motion.div>
       <motion.span variants={child} className="inline-block">
         Resume

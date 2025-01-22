@@ -28,8 +28,7 @@ export function Marquee({
         <div 
           className={cn(
             "flex w-max animate-marquee",
-            pauseOnHover && "hover:[animation-play-state:paused]",
-            direction === "right" && "animate-marquee-reverse"
+            pauseOnHover && "hover:[animation-play-state:paused]"
           )}
           style={{ "--duration": `${speed}s` } as React.CSSProperties}
         >
