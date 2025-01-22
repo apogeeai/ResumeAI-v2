@@ -2,13 +2,13 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from "@/components/theme-provider";
-import { SiteHeader } from "@/components/site-header";
+import { SiteNav } from "@/components/site-nav";
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'ResumeAI - ATS Optimized Resume Builder',
-  description: 'Transform your resume into a structured format optimized for ATS systems',
+  title: 'ResumeAI - AI-Powered Resume Builder and ATS Optimizer',
+  description: 'Transform your resume with AI-powered optimization for ATS systems. Get instant feedback and improvements to land your dream job.',
 };
 
 export default function RootLayout({
@@ -25,9 +25,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <SiteNav />
           <div className="relative flex min-h-screen flex-col">
-            <SiteHeader />
-            <main className="flex-1">{children}</main>
+            {children}
           </div>
         </ThemeProvider>
       </body>

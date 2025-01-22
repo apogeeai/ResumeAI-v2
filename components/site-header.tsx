@@ -26,7 +26,9 @@ export function SiteHeader() {
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2">
             <FileText className="h-5 w-5 text-primary" />
-            <span className="text-xl font-bold">ResumeAI</span>
+            <span className="text-xl font-bold">
+              Resume<span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">AI</span>
+            </span>
           </Link>
           <nav className="hidden md:flex gap-4">
             {navItems.map((item) => (
