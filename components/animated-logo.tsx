@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { FileText } from "lucide-react";
 
 export function AnimatedLogo({ className = "" }: { className?: string }) {
   const container = {
@@ -34,11 +35,14 @@ export function AnimatedLogo({ className = "" }: { className?: string }) {
 
   return (
     <motion.div
-      className={className}
+      className={`${className} flex items-center justify-center gap-2`}
       variants={container}
       initial="hidden"
       animate="visible"
     >
+      <motion.div variants={child} className="inline-flex">
+        <FileText className="w-8 h-8 text-primary" />
+      </motion.div>
       <motion.span variants={child} className="inline-block">
         Resume
       </motion.span>

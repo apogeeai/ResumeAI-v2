@@ -4,6 +4,7 @@ import { Upload, FileCheck, Brain, FileOutput } from "lucide-react";
 import Link from "next/link";
 import { AnimatedText } from "@/components/animated-text";
 import { AnimatedLogo } from "@/components/animated-logo";
+import { MarqueeDemo } from "@/components/marquee-demo";
 
 export default function Home() {
   return (
@@ -20,15 +21,10 @@ export default function Home() {
             delay={0.5}
           />
           
-          <Card className="group relative p-6 md:p-8 mt-8 md:mt-12 border border-[#e5e7eb] dark:border-border/50 bg-white/85 dark:bg-background/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/85 dark:supports-[backdrop-filter]:bg-background/85 overflow-hidden shadow-[0_1px_3px_0_rgb(0,0,0,0.1),0_1px_2px_-1px_rgb(0,0,0,0.1)] dark:shadow-sm">
+          <Card className="group relative p-6 md:p-8 mt-8 md:mt-12 border border-[#e5e7eb] dark:border-border/50 bg-white/85 dark:bg-background/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/85 dark:supports-[backdrop-filter]:bg-background/85 overflow-hidden shadow-[0_1px_3px_0_rgb(0,0,0,0.1),0_1px_2px_-1px_rgb(0,0,0,0.1)] dark:shadow-sm transition-transform duration-300 hover:scale-[1.02] before:absolute before:inset-0 before:border before:border-[#e5e7eb]/50 before:translate-x-[1px] before:translate-y-[1px] dark:before:border-border/30">
             {/* Gradient overlay - adjusted for light/dark modes */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-white/10 dark:from-primary/5 dark:via-primary/0 dark:to-primary/5" />
             
-            {/* Shine effect - adjusted for light/dark modes */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-              <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent dark:via-white/10" />
-            </div>
-
             <div className="relative space-y-4 md:space-y-6">
               <div className="flex justify-center">
                 <div className="relative inline-flex rounded-full p-3 bg-gradient-to-br from-primary/[0.15] via-primary/[0.07] to-transparent dark:from-primary/10 dark:via-primary/5 dark:to-transparent animate-slow-bounce">
@@ -65,15 +61,11 @@ export default function Home() {
             {features.map((feature, index) => (
               <Card 
                 key={index} 
-                className="group relative p-6 text-center border border-[#e5e7eb] dark:border-border/50 bg-white/85 dark:bg-background/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/85 dark:supports-[backdrop-filter]:bg-background/85 overflow-hidden shadow-[0_1px_3px_0_rgb(0,0,0,0.1),0_1px_2px_-1px_rgb(0,0,0,0.1)] dark:shadow-sm"
+                className="group relative p-6 text-center border border-[#e5e7eb] dark:border-border/50 bg-white/85 dark:bg-background/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/85 dark:supports-[backdrop-filter]:bg-background/85 overflow-hidden shadow-[0_1px_3px_0_rgb(0,0,0,0.1),0_1px_2px_-1px_rgb(0,0,0,0.1)] dark:shadow-sm transition-transform duration-300 hover:scale-[1.02] before:absolute before:inset-0 before:border before:border-[#e5e7eb]/50 before:translate-x-[1px] before:translate-y-[1px] dark:before:border-border/30"
               >
-                {/* Gradient overlay - adjusted for light/dark modes */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-white/10 dark:from-primary/5 dark:via-primary/0 dark:to-primary/5" />
-                
-                {/* Shine effect - adjusted for light/dark modes */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                  <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent dark:via-white/10" />
-                </div>
+                {/* Fancy gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-primary/[0.05] to-white/[0.05] dark:from-primary/10 dark:via-primary/5 dark:to-transparent" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0))]" />
 
                 {/* Content */}
                 <div className="relative">
@@ -90,6 +82,9 @@ export default function Home() {
               </Card>
             ))}
           </div>
+
+          {/* Add MarqueeDemo below buckets */}
+          <MarqueeDemo />
         </div>
       </div>
 
@@ -109,8 +104,10 @@ export default function Home() {
           </div>
           
           <div className="max-w-[1110px] mx-auto grid md:grid-cols-3 gap-8">
-            <Card className="group relative p-6 border border-[#e5e7eb] dark:border-border/50 bg-white/85 dark:bg-background/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/85 dark:supports-[backdrop-filter]:bg-background/85 overflow-hidden shadow-[0_1px_3px_0_rgb(0,0,0,0.1),0_1px_2px_-1px_rgb(0,0,0,0.1)] dark:shadow-sm">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-white/10 dark:from-primary/5 dark:via-primary/0 dark:to-primary/5" />
+            <Card className="group relative p-6 border border-[#e5e7eb] dark:border-border/50 bg-white/85 dark:bg-background/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/85 dark:supports-[backdrop-filter]:bg-background/85 overflow-hidden shadow-[0_1px_3px_0_rgb(0,0,0,0.1),0_1px_2px_-1px_rgb(0,0,0,0.1)] dark:shadow-sm transition-transform duration-300 hover:scale-[1.02] before:absolute before:inset-0 before:border before:border-[#e5e7eb]/50 before:translate-x-[1px] before:translate-y-[1px] dark:before:border-border/30">
+              {/* Fancy gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-primary/[0.05] to-white/[0.05] dark:from-primary/10 dark:via-primary/5 dark:to-transparent" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0))]" />
               <div className="relative space-y-4">
                 <div className="inline-flex rounded-lg p-3 bg-primary/10">
                   <svg className="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -122,8 +119,10 @@ export default function Home() {
               </div>
             </Card>
 
-            <Card className="group relative p-6 border border-[#e5e7eb] dark:border-border/50 bg-white/85 dark:bg-background/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/85 dark:supports-[backdrop-filter]:bg-background/85 overflow-hidden shadow-[0_1px_3px_0_rgb(0,0,0,0.1),0_1px_2px_-1px_rgb(0,0,0,0.1)] dark:shadow-sm">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-white/10 dark:from-primary/5 dark:via-primary/0 dark:to-primary/5" />
+            <Card className="group relative p-6 border border-[#e5e7eb] dark:border-border/50 bg-white/85 dark:bg-background/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/85 dark:supports-[backdrop-filter]:bg-background/85 overflow-hidden shadow-[0_1px_3px_0_rgb(0,0,0,0.1),0_1px_2px_-1px_rgb(0,0,0,0.1)] dark:shadow-sm transition-transform duration-300 hover:scale-[1.02] before:absolute before:inset-0 before:border before:border-[#e5e7eb]/50 before:translate-x-[1px] before:translate-y-[1px] dark:before:border-border/30">
+              {/* Fancy gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-primary/[0.05] to-white/[0.05] dark:from-primary/10 dark:via-primary/5 dark:to-transparent" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0))]" />
               <div className="relative space-y-4">
                 <div className="inline-flex rounded-lg p-3 bg-primary/10">
                   <svg className="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -135,8 +134,10 @@ export default function Home() {
               </div>
             </Card>
 
-            <Card className="group relative p-6 border border-[#e5e7eb] dark:border-border/50 bg-white/85 dark:bg-background/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/85 dark:supports-[backdrop-filter]:bg-background/85 overflow-hidden shadow-[0_1px_3px_0_rgb(0,0,0,0.1),0_1px_2px_-1px_rgb(0,0,0,0.1)] dark:shadow-sm">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-white/10 dark:from-primary/5 dark:via-primary/0 dark:to-primary/5" />
+            <Card className="group relative p-6 border border-[#e5e7eb] dark:border-border/50 bg-white/85 dark:bg-background/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/85 dark:supports-[backdrop-filter]:bg-background/85 overflow-hidden shadow-[0_1px_3px_0_rgb(0,0,0,0.1),0_1px_2px_-1px_rgb(0,0,0,0.1)] dark:shadow-sm transition-transform duration-300 hover:scale-[1.02] before:absolute before:inset-0 before:border before:border-[#e5e7eb]/50 before:translate-x-[1px] before:translate-y-[1px] dark:before:border-border/30">
+              {/* Fancy gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-primary/[0.05] to-white/[0.05] dark:from-primary/10 dark:via-primary/5 dark:to-transparent" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0))]" />
               <div className="relative space-y-4">
                 <div className="inline-flex rounded-lg p-3 bg-primary/10">
                   <svg className="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -163,8 +164,10 @@ export default function Home() {
         </div>
 
         <div className="max-w-[1110px] mx-auto grid md:grid-cols-3 gap-8 mt-12">
-          <Card className="group relative p-6 border border-[#e5e7eb] dark:border-border/50 bg-white/85 dark:bg-background/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/85 dark:supports-[backdrop-filter]:bg-background/85 overflow-hidden shadow-[0_1px_3px_0_rgb(0,0,0,0.1),0_1px_2px_-1px_rgb(0,0,0,0.1)] dark:shadow-sm">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-white/10 dark:from-primary/5 dark:via-primary/0 dark:to-primary/5" />
+          <Card className="group relative p-6 border border-[#e5e7eb] dark:border-border/50 bg-white/85 dark:bg-background/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/85 dark:supports-[backdrop-filter]:bg-background/85 overflow-hidden shadow-[0_1px_3px_0_rgb(0,0,0,0.1),0_1px_2px_-1px_rgb(0,0,0,0.1)] dark:shadow-sm transition-transform duration-300 hover:scale-[1.02] before:absolute before:inset-0 before:border before:border-[#e5e7eb]/50 before:translate-x-[1px] before:translate-y-[1px] dark:before:border-border/30">
+            {/* Fancy gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-primary/[0.05] to-white/[0.05] dark:from-primary/10 dark:via-primary/5 dark:to-transparent" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0))]" />
             <div className="relative space-y-4">
               <div className="flex items-center space-x-2">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -182,8 +185,10 @@ export default function Home() {
             </div>
           </Card>
 
-          <Card className="group relative p-6 border border-[#e5e7eb] dark:border-border/50 bg-white/85 dark:bg-background/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/85 dark:supports-[backdrop-filter]:bg-background/85 overflow-hidden shadow-[0_1px_3px_0_rgb(0,0,0,0.1),0_1px_2px_-1px_rgb(0,0,0,0.1)] dark:shadow-sm">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-white/10 dark:from-primary/5 dark:via-primary/0 dark:to-primary/5" />
+          <Card className="group relative p-6 border border-[#e5e7eb] dark:border-border/50 bg-white/85 dark:bg-background/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/85 dark:supports-[backdrop-filter]:bg-background/85 overflow-hidden shadow-[0_1px_3px_0_rgb(0,0,0,0.1),0_1px_2px_-1px_rgb(0,0,0,0.1)] dark:shadow-sm transition-transform duration-300 hover:scale-[1.02] before:absolute before:inset-0 before:border before:border-[#e5e7eb]/50 before:translate-x-[1px] before:translate-y-[1px] dark:before:border-border/30">
+            {/* Fancy gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-primary/[0.05] to-white/[0.05] dark:from-primary/10 dark:via-primary/5 dark:to-transparent" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0))]" />
             <div className="relative space-y-4">
               <div className="flex items-center space-x-2">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -201,8 +206,10 @@ export default function Home() {
             </div>
           </Card>
 
-          <Card className="group relative p-6 border border-[#e5e7eb] dark:border-border/50 bg-white/85 dark:bg-background/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/85 dark:supports-[backdrop-filter]:bg-background/85 overflow-hidden shadow-[0_1px_3px_0_rgb(0,0,0,0.1),0_1px_2px_-1px_rgb(0,0,0,0.1)] dark:shadow-sm">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-white/10 dark:from-primary/5 dark:via-primary/0 dark:to-primary/5" />
+          <Card className="group relative p-6 border border-[#e5e7eb] dark:border-border/50 bg-white/85 dark:bg-background/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/85 dark:supports-[backdrop-filter]:bg-background/85 overflow-hidden shadow-[0_1px_3px_0_rgb(0,0,0,0.1),0_1px_2px_-1px_rgb(0,0,0,0.1)] dark:shadow-sm transition-transform duration-300 hover:scale-[1.02] before:absolute before:inset-0 before:border before:border-[#e5e7eb]/50 before:translate-x-[1px] before:translate-y-[1px] dark:before:border-border/30">
+            {/* Fancy gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-primary/[0.05] to-white/[0.05] dark:from-primary/10 dark:via-primary/5 dark:to-transparent" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0))]" />
             <div className="relative space-y-4">
               <div className="flex items-center space-x-2">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -228,9 +235,9 @@ export default function Home() {
           <div className="max-w-[1110px] mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
               {/* Sample Resumes */}
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold bg-gradient-to-br from-foreground to-foreground/80 bg-clip-text text-transparent">Sample Resumes</h3>
-                <ul className="space-y-2 text-muted-foreground">
+              <div className="space-y-3">
+                <h3 className="text-base font-semibold bg-gradient-to-br from-foreground to-foreground/80 bg-clip-text text-transparent">Sample Resumes</h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>
                     <Link href="#" className="hover:text-primary transition-colors">Software Engineer</Link>
                   </li>
@@ -247,9 +254,9 @@ export default function Home() {
               </div>
 
               {/* Resume Resources */}
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold bg-gradient-to-br from-foreground to-foreground/80 bg-clip-text text-transparent">Resume Resources</h3>
-                <ul className="space-y-2 text-muted-foreground">
+              <div className="space-y-3">
+                <h3 className="text-base font-semibold bg-gradient-to-br from-foreground to-foreground/80 bg-clip-text text-transparent">Resume Resources</h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>
                     <Link href="#" className="hover:text-primary transition-colors">ATS Optimization Guide</Link>
                   </li>
@@ -266,9 +273,9 @@ export default function Home() {
               </div>
 
               {/* Career Tools */}
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold bg-gradient-to-br from-foreground to-foreground/80 bg-clip-text text-transparent">Career Tools</h3>
-                <ul className="space-y-2 text-muted-foreground">
+              <div className="space-y-3">
+                <h3 className="text-base font-semibold bg-gradient-to-br from-foreground to-foreground/80 bg-clip-text text-transparent">Career Tools</h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>
                     <Link href="#" className="hover:text-primary transition-colors">Salary Calculator</Link>
                   </li>
@@ -285,9 +292,9 @@ export default function Home() {
               </div>
 
               {/* AI Features */}
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold bg-gradient-to-br from-foreground to-foreground/80 bg-clip-text text-transparent">AI Features</h3>
-                <ul className="space-y-2 text-muted-foreground">
+              <div className="space-y-3">
+                <h3 className="text-base font-semibold bg-gradient-to-br from-foreground to-foreground/80 bg-clip-text text-transparent">AI Features</h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>
                     <Link href="#" className="hover:text-primary transition-colors">Experience Enhancer</Link>
                   </li>
@@ -306,7 +313,7 @@ export default function Home() {
 
             {/* Bottom Footer */}
             <div className="mt-12 pt-8 border-t border-border/50">
-              <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm">
                 <div className="flex items-center space-x-4">
                   <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Privacy</Link>
                   <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Terms</Link>
