@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Upload, Loader2 } from "lucide-react";
+import { Upload, Loader2, FileText } from "lucide-react";
 import { useDropzone } from "react-dropzone";
 import { AnimatedText } from "@/components/animated-text";
 import { AnimatedPageTitle } from "@/components/animated-page-title";
@@ -67,87 +67,34 @@ Best regards,
           />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Card className="group relative p-6 border border-[#e5e7eb] dark:border-border/50 bg-white/85 dark:bg-background/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/85 dark:supports-[backdrop-filter]:bg-background/85 overflow-hidden shadow-[0_1px_3px_0_rgb(0,0,0,0.1),0_1px_2px_-1px_rgb(0,0,0,0.1)] dark:shadow-sm transition-transform duration-300 hover:scale-[1.02] before:absolute before:inset-0 before:border before:border-[#e5e7eb]/50 before:translate-x-[1px] before:translate-y-[1px] dark:before:border-border/30">
-              {/* Fancy gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-primary/[0.05] to-white/[0.05] dark:from-primary/10 dark:via-primary/5 dark:to-transparent" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0))]" />
-              
-              <div className="relative">
-                <h2 className="text-2xl font-semibold mb-4 bg-gradient-to-br from-foreground to-foreground/80 bg-clip-text text-transparent">Upload Resume</h2>
-                <div
-                  {...getRootProps()}
-                  className={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors ${
-                    isDragActive ? "border-primary bg-primary/5" : "border-muted"
-                  }`}
-                >
-                  <input {...getInputProps()} />
-                  <div className="relative inline-flex rounded-full p-3 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent mb-4">
-                    <Upload className="w-12 h-12 text-primary" />
-                  </div>
-                  {fileName ? (
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="text-primary font-medium"
-                    >
-                      {fileName}
-                    </motion.p>
-                  ) : (
-                    <p className="text-muted-foreground">
-                      {isDragActive
-                        ? "Drop your resume here"
-                        : "Drag & drop your resume or click to browse"}
-                    </p>
-                  )}
-                  <p className="text-sm text-muted-foreground mt-2">
-                    Supports PDF and TXT files
-                  </p>
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[1110px] mx-auto">
+          <Card className="relative p-6 h-[280px] transition-transform duration-300 hover:scale-[1.02]">
+            <div className="absolute inset-0 bg-gradient-to-r from-white/50 via-white/30 to-white/50 dark:from-white/[0.03] dark:via-white/[0.02] dark:to-white/[0.03]" />
+            <div className="relative space-y-4">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <Upload className="w-6 h-6 text-primary" />
               </div>
-            </Card>
-          </motion.div>
+              <h3 className="text-xl font-semibold">Upload Resume</h3>
+              <p className="text-muted-foreground">Upload your resume to get started. We'll analyze it and help you create a matching cover letter.</p>
+              <Button size="lg" className="w-full">
+                Upload Resume
+              </Button>
+            </div>
+          </Card>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Card className="group relative p-6 border border-[#e5e7eb] dark:border-border/50 bg-white/85 dark:bg-background/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/85 dark:supports-[backdrop-filter]:bg-background/85 overflow-hidden shadow-[0_1px_3px_0_rgb(0,0,0,0.1),0_1px_2px_-1px_rgb(0,0,0,0.1)] dark:shadow-sm transition-transform duration-300 hover:scale-[1.02] before:absolute before:inset-0 before:border before:border-[#e5e7eb]/50 before:translate-x-[1px] before:translate-y-[1px] dark:before:border-border/30">
-              {/* Fancy gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-primary/[0.05] to-white/[0.05] dark:from-primary/10 dark:via-primary/5 dark:to-transparent" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0))]" />
-              
-              <div className="relative">
-                <h2 className="text-2xl font-semibold mb-4 bg-gradient-to-br from-foreground to-foreground/80 bg-clip-text text-transparent">Job Description</h2>
-                <Textarea
-                  placeholder="Paste the job description here..."
-                  className="min-h-[200px] mb-4 resize-none"
-                  value={jobDescription}
-                  onChange={(e) => setJobDescription(e.target.value)}
-                />
-                <Button
-                  className="w-full bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary"
-                  onClick={generateCoverLetter}
-                  disabled={isGenerating || !jobDescription || !fileName}
-                >
-                  {isGenerating ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Generating...
-                    </>
-                  ) : (
-                    "Generate Cover Letter"
-                  )}
-                </Button>
+          <Card className="relative p-6 h-[280px] transition-transform duration-300 hover:scale-[1.02]">
+            <div className="absolute inset-0 bg-gradient-to-r from-white/50 via-white/30 to-white/50 dark:from-white/[0.03] dark:via-white/[0.02] dark:to-white/[0.03]" />
+            <div className="relative space-y-4">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <FileText className="w-6 h-6 text-primary" />
               </div>
-            </Card>
-          </motion.div>
+              <h3 className="text-xl font-semibold">Job Description</h3>
+              <p className="text-muted-foreground">Paste the job description to help us tailor your cover letter to the specific role.</p>
+              <Button size="lg" className="w-full">
+                Add Description
+              </Button>
+            </div>
+          </Card>
         </div>
 
         <AnimatePresence>

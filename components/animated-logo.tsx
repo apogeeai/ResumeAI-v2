@@ -33,6 +33,10 @@ export function AnimatedLogo({ className = "" }: { className?: string }) {
     },
   };
 
+  // Determine icon size based on parent class
+  const isLarge = className?.includes("text-4xl") || className?.includes("text-6xl");
+  const iconSize = isLarge ? "w-14 h-14" : "w-7 h-7";
+
   return (
     <motion.div
       className={`${className} flex items-center justify-center gap-2`}
@@ -41,7 +45,7 @@ export function AnimatedLogo({ className = "" }: { className?: string }) {
       animate="visible"
     >
       <motion.div variants={child} className="inline-flex">
-        <FileText className="w-9 h-9" />
+        <FileText className={iconSize} />
       </motion.div>
       <motion.span variants={child} className="inline-block">
         Resume
